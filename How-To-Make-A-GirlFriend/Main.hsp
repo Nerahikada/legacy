@@ -1,0 +1,16 @@
+// Code by mikatofu
+// https://twitter.com/mikatofu31/status/895283461501497344
+
+dim GirlFriendCount
+
+gosub *baka
+print "I have a girl friend !!!"
+
+stop
+
+
+
+*baka
+	dim GirlFriendCount
+	GirlFriendCount = 1
+	return
