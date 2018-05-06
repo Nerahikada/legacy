@@ -256,6 +256,8 @@ srcを変更する必要があります (今後のアップデートによって
  1505行目:
  `foreach($this->level->getNearbyEntities($this->boundingBox->grow(1, 0.5, 1), $this) as $entity){` を<br>
  `foreach($this->level->getNearbyEntities($this->boundingBox->grow(3, 1.5, 3), $this) as $entity){` へ変更<br>
+ <br>**src/pocketmine/entity/object/ItemEntity.php** (ドロップしたアイテムの寿命設定)<br>
+ 107行目: `if($this->age > 6000){` を `if($this->age > 100){` へ変更<br>
 
 
 ## 注意
