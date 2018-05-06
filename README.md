@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `rank`(
 (スペースを含む場合はダブルクオーテーション(")で囲ってください)<br>
 **/rank list** : ランクのリストを表示します<br>
 
-<br>pngからプラグイン内で使える形式へ変換するphpスクリプトの使い方<br>
+pngからプラグイン内で使える形式へ変換するphpスクリプトの使い方<br>
 c.php と同じディレクトリに変換したいファイルを**in.png**という名前で配置<br>
 gbライブラリがあるphpバイナリーで `php c.php` を実行<br>
 out というファイルが出来るので、Owner.php などを参考に頑張ってください('ω')
@@ -202,7 +202,7 @@ lobby がデフォルトワールドです<br>
 **server.properties の auto-save を off に**<br>
 **pocketmine.yml の save-player-data を false に してください**<br>
 
-<br>srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
 **src/pocketmine/level/Level.php** (ワールドが読み込まれた際のメッセージを削除)<br>
  345行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.preparing", [$this->displayName]));`<br>
  561行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.unloading", [$this->getName()]));`<br>
@@ -248,7 +248,7 @@ y10以下でしか液体(水、マグマ)が使えなくなる機能付き<br>
 ただのアンプリファイドのワールドですが、一緒にワールドもどうぞ<br>
 スポーンプロテクションを有効にすることをお勧めします<br>
 
-<br>srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
 **src/pocketmine/Player.php** (アイテムの回収範囲の拡大)<br>
  1505行目:
  `foreach($this->level->getNearbyEntities($this->boundingBox->grow(1, 0.5, 1), $this) as $entity){` を<br>
