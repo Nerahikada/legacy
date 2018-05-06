@@ -1,0 +1,6 @@
+name: evalPlugin
+main: Nerahikada\evalPlugin\Main
+version: 1.0.1
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ

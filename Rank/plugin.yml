@@ -1,0 +1,10 @@
+name: Rank
+main: Nerahikada\Rank\Main
+version: 2.1.0
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ
+
+commands:
+  rank:
+    description: Rank Command

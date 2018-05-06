@@ -12,7 +12,7 @@ use pocketmine\plugin\PluginBase;
 class LoginSystem extends PluginBase implements Listener{
 
 	public function onEnable(){
-		$this->DB = new \mysqli('localhost', 'user', 'password', 'database');
+		$this->DB = new \mysqli('host', 'user', 'password', 'database');
 
 		$this->Server = \pocketmine\Server::getInstance();
 		$this->Server->getPluginManager()->registerEvents($this, $this);

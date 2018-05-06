@@ -49,7 +49,7 @@ class Main extends PluginBase implements Listener{
 		$this->lobby = new Position(368.5, 38, -872.5, $this->server->getLevelByName("Waitinglobby2"));
 		$this->world = new Position(1.5, 21, 0.5, $this->server->getLevelByName("hub"));
 
-		$this->db = new \mysqli('localhost', 'user', 'password', 'database');
+		$this->db = new \mysqli('host', 'user', 'password', 'database');
 
 		$this->game_wait();
 	}

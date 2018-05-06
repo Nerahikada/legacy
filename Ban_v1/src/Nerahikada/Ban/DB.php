@@ -25,7 +25,7 @@ class DB extends AsyncTask{
 	}
 
 	public function onRun(){
-		$db = new \mysqli('localhost', 'user', 'password', 'database');
+		$db = new \mysqli('host', 'user', 'password', 'database');
 		$db->set_charset("utf8");
 
 		$callable = [$this, $this->callable];
