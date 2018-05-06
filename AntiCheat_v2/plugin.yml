@@ -1,0 +1,6 @@
+name: AntiCheat
+main: AntiCheat\AntiCheat
+version: 2
+api: 3.0.0
+load: POSTWORLD
+author: ねらひかだ
