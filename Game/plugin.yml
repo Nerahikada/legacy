@@ -1,0 +1,6 @@
+name: Game
+main: Nerahikada\Main
+version: 1
+api: 3.0.0
+load: POSTWORLD
+author: ねらひかだ

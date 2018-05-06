@@ -1,0 +1,6 @@
+name: AntiCheat
+main: AntiCheat\Main
+version: 3.1.9
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ

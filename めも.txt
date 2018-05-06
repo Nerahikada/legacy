@@ -1,0 +1,2 @@
+プレイヤーを座らせる: https://forums.pmmp.io/threads/how-do-i-make-a-player-sit-with-datapacket.4306/
+クエリー: https://gist.github.com/xBeastMode/89a9d85c21ec5f42f14db49550ea8e5c
