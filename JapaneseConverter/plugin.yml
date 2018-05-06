@@ -1,0 +1,13 @@
+name: JapaneseConverter
+main: Nerahikada\JapaneseConverter
+version: 1.1.2
+api: 3.0.0-ALPHA11
+load: POSTWORLD
+author: Koyu1153
+authors: [ねらひかだ]
+description: Convert to Japanese
+website: http://koyu1153.wordpress.com/2014/12/06/japaneseconvert/
+commands:
+ ja:
+  description: JapaneseConverter command
+  usage: "/ja"

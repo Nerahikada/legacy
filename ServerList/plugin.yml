@@ -1,0 +1,9 @@
+name: ServerList
+main: ServerList\ServerList
+version: 3.0.3
+api: 3.0.0-ALPHA12
+load: STARTUP
+author: PM-MP ServerList JPN
+authors: [Nexus, ねらひかだ]
+description: PM-MP ServerList of Japan
+website: http://pmmp.jp.net/

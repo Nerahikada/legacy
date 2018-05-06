@@ -1,0 +1,16 @@
+name: 1vs1
+main: vs\Main
+version: 1.7.0
+api: 3.0.0-ALPHA12
+load: STARTUP
+author: ねらひかだ
+
+commands:
+  save:
+    description: インベントリを保存して、編集モードから抜けます
+  quit:
+    description: インベントリを保存せずに、編集モードから抜けます
+  reset:
+    description: インベントリをリセットします
+  duel:
+    description: 指定した相手と戦うことができます

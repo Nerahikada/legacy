@@ -1,0 +1,12 @@
+name: Seichi
+main: Nerahikada\Seichi
+version: 1
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ
+
+commands:
+  sb:
+    description: Get Storage Box (need 8 chests)
+  nv:
+    description: NightVision Effect

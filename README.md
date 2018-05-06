@@ -50,6 +50,8 @@ Sorrow Serverのメインプラグインです<br>
 なんか無駄にKillAura検出機能が入っています<br>
 ワールドと一緒にどうぞ<br>
 Waitinglobby2がロビー、 hubがゲームワールドです<br>
+**server.properties の auto-save を off に**<br>
+**pocketmine.yml の save-player-data を false に してください**<br>
 **※ データベースの構成が分かりません**
 
 ### conversion
@@ -89,6 +91,8 @@ NBTExploer 使うときに便利です
 ### SkyWars
 SkyWars プラグインです<br>
 ワールドも一緒にどうぞ (hypixel-lobby をデフォルトワールドにしてください)<br>
+**server.properties の auto-save を off に**<br>
+**pocketmine.yml の save-player-data を false に してください**<br>
 ( データベースを実装しようとした痕跡があります('ω') )
 
 ### Ban_v1
@@ -105,12 +109,13 @@ CREATE TABLE ban(id VARCHAR(13), name VARCHAR(15), ip VARCHAR(15), cid BIGINT, b
 **/ban <Name> <Reason> <数字|f>** : プレイヤーをBanします<br>
 最後のパラメーターの数字は、期限Banをする時に指定します (秒)<br>
 無期限(永遠)の場合は f を指定してください<br>
-コマンドでスペースを打ちたいときは \\s を入力してください (例: Nera hikada -> Nera\\shikada)
+コマンドでスペースを打ちたいときは \\s を入力してください (例: Nera\\shikada)
 
 ### Ban_v2.4.0
 最新 Banプラグインです<br>
 Banされていたら別のサーバーへ転送する機能付きです<br>
 転送先のサーバーでは Banned プラグインを使用することをおススメします<br>
+転送させたくない場合は、うまく弄ってください…<br>
 
 <br>MySQL Setup: 
 ```
@@ -175,6 +180,79 @@ out というファイルが出来るので、Owner.php などを参考に頑張
 コンソール、もしくはチャット欄から実行できます<br>
 `/*e*/`を加えると、コードとして判定されます<br>
 例: `EXAMPLE CODE; /*e*/`
+
+### JapaneseConverter
+ローマ字から日本語へ変換するプラグインです<br>
+Windows10Editionはデフォルトで変換がonになります<br>
+/ja で変換が切り替えられます<br>
+
+### NoExtraFeatures
+余計な機能を無効化するプラグインです<br>
+SkyWars, 1vs1 などPC版のワールドを使っている場合は必須です<br>
+草ブロックが広がる、葉っぱが自動で壊れる、実績(念のため) を無効化します
+
+### ServerList
+自慢の非同期サーバーリストプラグインです<br>
+使う前に、ServerListAPI.php を編集してください (トークンを追加してください)<br>
+
+### 1vs1
+Build UHC です<br>
+ワールドと一緒にどうぞ<br>
+lobby がデフォルトワールドです<br>
+**server.properties の auto-save を off に**<br>
+**pocketmine.yml の save-player-data を false に してください**<br>
+
+<br>srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+**src/pocketmine/level/Level.php** (ワールドが読み込まれた際のメッセージを削除)<br>
+ 345行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.preparing", [$this->displayName]));`<br>
+ 561行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.unloading", [$this->getName()]));`<br>
+**src/pocketmine/block/Liquid.php** (水とマグマが衝突した際に出来たブロックを記録する)<br>
+ 427行目: `protected function liquidCollide(Block $cause, Block $result) : bool{` の下に追加
+```
+$key = (string) $this->asVector3();
+$this->level->placedBlock[$key] = true;
+```
+**src/pocketmine/entity/projectile/Arrow.php** (弓矢の軌道変更)<br>
+ 46行目: `protected $gravity = 0.05;` を `protected $gravity = 0.01;` へ変更<br>
+**src/pocketmine/block/Lava.php** (マグマの弱体化)<br>
+ 106行目: <br>
+ `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 4);` を<br>
+ `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 2);` へ変更<br>
+
+<br>(もし何か記載を忘れていたらごめんなさい…)<br>
+
+<br>MySQL Setup: 
+```
+CREATE TABLE IF NOT EXISTS `build_uhc`(
+	`xuid` VARCHAR(20),
+	`name` VARCHAR(15),
+	`edition` TINYINT UNSIGNED,
+	`win` INT UNSIGNED,
+	`lose` INT UNSIGNED,
+	`draw` INT UNSIGNED,
+	`total` INT UNSIGNED,
+	`ratio` DOUBLE UNSIGNED,
+	`version` SMALLINT UNSIGNED,
+	`inventory` TEXT
+);
+```
+
+### SpecialTools
+もともと依頼があって制作したものですが、必要なくなったらしいので配布します<br>
+整地鯖で使ってる特別なツールのAPIです<br>
+具体的な使い方は Seichi プラグインをご覧ください
+
+### Seichi
+整地鯖のメインプラグインです<br>
+ただのアンプリファイドのワールドですが、一緒にワールドもどうぞ<br>
+スポーンプロテクションを有効にすることをお勧めします<br>
+
+<br>srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+**src/pocketmine/Player.php** (アイテムの回収範囲の拡大)<br>
+ 1505行目:
+ `foreach($this->level->getNearbyEntities($this->boundingBox->grow(1, 0.5, 1), $this) as $entity){` を<br>
+ `foreach($this->level->getNearbyEntities($this->boundingBox->grow(3, 1.5, 3), $this) as $entity){` へ変更<br>
+
 
 ## 注意
 一部のプラグインは
