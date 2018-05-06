@@ -218,8 +218,11 @@ $this->level->placedBlock[$key] = true;
  106行目: <br>
  `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 4);` を<br>
  `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 2);` へ変更<br>
+ <br>**src/pocketmine/item/Bow.php** (Bowスパ 軽減)<br>
+ 69行目: `if($force < 0.1 or $diff < 5){` を `if($force < 1 or $diff < 5){` へ変更<br>
+ <br>**src/pocketmine/entity/Living.php** (燃えないように)<br>
+ 538行目: `$this->setOnFire(2 * $this->level->getDifficulty());` を削除<br>
 
-<br>(もし何か記載を忘れていたらごめんなさい…)<br>
 
 <br>MySQL Setup: 
 ```
