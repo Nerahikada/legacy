@@ -1,0 +1,6 @@
+name: ChunkInfo
+main: Nerahikada\ChunkInfo
+version: 1
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ

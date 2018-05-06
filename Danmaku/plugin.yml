@@ -1,0 +1,6 @@
+name: Danmaku
+main: Nerahikada\Danmaku
+version: 1
+api: 3.0.0-ALPHA10
+load: POSTWORLD
+author: ねらひかだ

@@ -1,6 +1,6 @@
-name: Face
-main: Nerahikada\Face
+name: AI
+main: Nerahikada\AI
 version: 1
-api: 3.0.0
+api: 3.0.0-ALPHA11
 load: POSTWORLD
 author: ねらひかだ

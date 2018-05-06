@@ -1,0 +1,10 @@
+name: RobotArm
+main: Nerahikada\RobotArm\Main
+version: 1.0.0
+api: 3.0.0-ALPHA10
+load: POSTWORLD
+author: ねらひかだ
+
+commands:
+  summon-robotarm:
+    description: Summon RobotArm

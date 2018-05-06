@@ -1,0 +1,10 @@
+name: Copy
+main: Copy\Copy
+version: 1
+api: 3.0.0-ALPHA12
+load: POSTWORLD
+author: ねらひかだ
+description: Building Copy Plugin.
+commands:
+ bc:
+  description: Building Copy Command.
