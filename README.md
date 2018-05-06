@@ -206,15 +206,15 @@ lobby がデフォルトワールドです<br>
 **src/pocketmine/level/Level.php** (ワールドが読み込まれた際のメッセージを削除)<br>
  345行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.preparing", [$this->displayName]));`<br>
  561行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.unloading", [$this->getName()]));`<br>
-**src/pocketmine/block/Liquid.php** (水とマグマが衝突した際に出来たブロックを記録する)<br>
+<br>**src/pocketmine/block/Liquid.php** (水とマグマが衝突した際に出来たブロックを記録する)<br>
  427行目: `protected function liquidCollide(Block $cause, Block $result) : bool{` の下に追加
 ```
 $key = (string) $this->asVector3();
 $this->level->placedBlock[$key] = true;
 ```
-**src/pocketmine/entity/projectile/Arrow.php** (弓矢の軌道変更)<br>
+<br>**src/pocketmine/entity/projectile/Arrow.php** (弓矢の軌道変更)<br>
  46行目: `protected $gravity = 0.05;` を `protected $gravity = 0.01;` へ変更<br>
-**src/pocketmine/block/Lava.php** (マグマの弱体化)<br>
+<br>**src/pocketmine/block/Lava.php** (マグマの弱体化)<br>
  106行目: <br>
  `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 4);` を<br>
  `$ev = new EntityDamageByBlockEvent($this, $entity, EntityDamageEvent::CAUSE_LAVA, 2);` へ変更<br>
@@ -261,5 +261,5 @@ y10以下でしか液体(水、マグマ)が使えなくなる機能付き<br>
  - 重大な脆弱性がある
  - データベースの構成が分からない
 
-<br>です<br>
+です<br>
 誰か優しい人直して…
