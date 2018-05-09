@@ -117,14 +117,6 @@ class DB extends AsyncTask{
 				$thisValue = [$thisValue];
 			}
 
-			// 0で割れない時の対処
-			$this->get($db, false);
-			$result = $this->getResult();
-			if($result["lose"] == 0){
-				$this->query($db, "UPDATE ".Main::DB_TABLE." SET lose = 1 WHERE xuid = '$this->xuid'");
-				$zero = true;
-			}
-
 			$query = "";
 			foreach($thisValue as $arrayKey => $value){
 				if(is_string($value) &&
@@ -138,16 +130,15 @@ class DB extends AsyncTask{
 			$query = rtrim($query, ",");
 			$this->query($db, "UPDATE ".Main::DB_TABLE." SET $query WHERE xuid = '$this->xuid'");
 
-			// 0で割れない時の対処
-			if(isset($zero)){
-				$this->query($db, "UPDATE ".Main::DB_TABLE." SET lose = 0, total = total - 1 WHERE xuid = '$this->xuid'");
-			}
-
-			//Fix Ratio
-			$this->get($db, false);
-			$result = $this->getResult();
-			if($result["ratio"] == null){
-				$this->query($db, "UPDATE ".Main::DB_TABLE." SET ratio = win WHERE xuid = '$this->xuid'");
+			// キルレの計算
+			if(in_array(['win', 'lose'], $this->key)){
+				$this->get($db, false);
+				$result = $this->getResult();
+				if($result["lose"] == 0){
+					$this->query($db, "UPDATE ".Main::DB_TABLE." SET ratio = win WHERE xuid = '$this->xuid'");
+				}else{
+					$this->query($db, "UPDATE ".Main::DB_TABLE." SET ratio = win/lose WHERE xuid = '$this->xuid'");
+				}
 			}
 
 			// Inventory

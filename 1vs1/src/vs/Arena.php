@@ -234,8 +234,8 @@ class Arena{
 				$this->broadcastMessage("§l§4エラーが発生しました");
 				return;
 			}
-			Utils::asyncDB("update", $winner->getXuid(), ["win", "total", "ratio"], ["win+1", "win+lose+draw", "win/lose"]);
-			Utils::asyncDB("update", $loser->getXuid(), ["lose", "total", "ratio"], ["lose+1", "win+lose+draw", "win/lose"]);
+			Utils::asyncDB("update", $winner->getXuid(), ["win", "total"], ["win+1", "win+lose+draw"]);
+			Utils::asyncDB("update", $loser->getXuid(), ["lose", "total"], ["lose+1", "win+lose+draw"]);
 
 			$winner->addTitle("§l§6VICTORY!");
 			$loser->addTitle("§l§4YOU DIED!");
