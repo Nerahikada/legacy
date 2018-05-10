@@ -131,7 +131,7 @@ class DB extends AsyncTask{
 			$this->query($db, "UPDATE ".Main::DB_TABLE." SET $query WHERE xuid = '$this->xuid'");
 
 			// キルレの計算
-			foreach($this->key as $k){
+			foreach($thisKey as $k){
 				if($k === 'win' || $k === 'lose'){
 					$this->get($db, false);
 					$result = $this->getResult();
