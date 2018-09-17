@@ -20,7 +20,6 @@ use pocketmine\item\Tool;
 use pocketmine\network\mcpe\protocol\ModalFormRequestPacket;
 use pocketmine\network\mcpe\protocol\ProtocolInfo;
 use pocketmine\plugin\PluginBase;
-use pocketmine\scheduler\PluginTask;
 use pocketmine\Player;
 use pocketmine\Server;
 
@@ -30,7 +29,7 @@ class Seichi extends PluginBase implements Listener{
 
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getScheduler()->scheduleRepeatingTask(new TipsTask($this), 20 * 60 * 5);
+		$this->getServer()->getScheduler()->scheduleRepeatingTask(new TipsTask(), 20 * 60 * 5);
 	}
 
 	public function onJoin(PlayerJoinEvent $event){
@@ -228,11 +227,7 @@ class Seichi extends PluginBase implements Listener{
 
 
 
-class TipsTask extends PluginTask{
-
-	public function __construct(PluginBase $owner){
-		parent::__construct($owner);
-	}
+class TipsTask extends CallbackTask{
 
 	public function onRun(int $currentTick){
 		$server = Server::getInstance();
