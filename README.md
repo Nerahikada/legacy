@@ -33,13 +33,14 @@ __なにかあればissueまでお願いします__<br>
 
 <br>
 
-一部のプラグインは
- - 最新版に対応させていない (3.0.0-ALPHA12 ってなってれば最新版に対応してます)
+全てのプラグイン
+ - 最新版に対応していない (plugin.ymlを書き換えるだけで動くものもあります)
+
+<br>
+
+一部のプラグイン
  - 重大な脆弱性がある
  - データベースの構成が分からない
-
-です<br>
-誰か直してくださいお願いします<br>
 
 <br>
 
@@ -241,7 +242,7 @@ lobby がデフォルトワールドです<br>
 **server.properties の auto-save を off に**<br>
 **pocketmine.yml の save-player-data を false に してください**<br>
 
-srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+srcの変更点 (必ずしも変更する必要はありません)<br>
 **src/pocketmine/level/Level.php** (ワールドが読み込まれた際のメッセージを削除)<br>
  345行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.preparing", [$this->displayName]));`<br>
  561行目: `$this->server->getLogger()->info($this->server->getLanguage()->translateString("pocketmine.level.unloading", [$this->getName()]));`<br>
@@ -290,7 +291,7 @@ y10以下でしか液体(水、マグマ)が使えなくなる機能付き<br>
 ただのアンプリファイドのワールドですが、一緒にワールドもどうぞ<br>
 スポーンプロテクションを有効にすることをお勧めします<br>
 
-srcを変更する必要があります (今後のアップデートによって変わる可能性があります…)<br>
+srcの変更点 (必ずしも変更する必要はありません)<br>
 **src/pocketmine/Player.php** (アイテムの回収範囲の拡大)<br>
  1505行目:
  `foreach($this->level->getNearbyEntities($this->boundingBox->grow(1, 0.5, 1), $this) as $entity){` を<br>
