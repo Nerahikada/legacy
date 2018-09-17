@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `rank`(
 ```
 
 <br>使い方<br>
-**/rank set <Name> <RankId>** : プレイヤーのランクをセットします (0にすると削除されます)<br>
+**/rank set \<Name\> \<RankId\>** : プレイヤーのランクをセットします (0にすると削除されます)<br>
 (スペースを含む場合はダブルクオーテーション(")で囲ってください)<br>
 **/rank list** : ランクのリストを表示します<br>
 
